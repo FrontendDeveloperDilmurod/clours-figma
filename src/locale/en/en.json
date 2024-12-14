@@ -1,0 +1,55 @@
+{
+  "translation": {
+    "navbar": {
+      "logo": "Forever",
+      "home": "HOME",
+      "collection": "Collection",
+      "about": "About",
+      "contact": "Contact",
+      "myProfile": "My Profile",
+      "myOrders": "My Orders",
+      "logout": "Logout"
+    },
+    "hero": {
+      "title1": "our bestsellers",
+      "title2": "Latest Arrivals",
+      "title3": "Shop Now"
+    },
+    "LatestCollection": {
+      "title1": "Latest Collections",
+      "title2": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the."
+    },
+    "BestSeler": {
+      "title1": "Best Seller",
+      "title2": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the."
+    },
+    "OurPolicy": {
+      "title1": "Easy Exchange Policy",
+      "title2": "We offer hassle free  exchange policy",
+      "title3": "7 Days Return Policy",
+      "title4": "We provide 7 days free return policy ",
+      "title5": "Best Customer Support ",
+      "title6": "We provide 24/7 customer support "
+    },
+    "NewsletterBox": {
+      "title1": "Subscribe now & get 20% off",
+      "title2": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+      "title3": "Enter your email id",
+      "title4": "SUBSCRIBE"
+    },
+    "Footer": {
+      "title1": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "title2": "COMPANY",
+      "title3": "Home",
+      "title4": "About us",
+      "title5": "Delivery",
+      "title6": "Privacy policy",
+      "title7": "GET IN TOUCH",
+      "title8": "  +998 94  123 45 67",
+      "title9": "greatstackdev@gmail.com",
+      "title10": " Copyright 2024 ©",
+      "title11": "GreatStack.dev",
+      "title12": " - All Rights Reserved."
+    }
+  }
+}

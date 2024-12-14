@@ -1,0 +1,196 @@
+"
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { assets } from './../assets/frontend_assets/assets';
+import { IoCloseOutline } from 'react-icons/io5';
+
+// Tarjima JSON obyektlari
+const translations = {
+    uz: {
+        navbar: {
+            logo: "Abadiy",
+            home: "BOSH SAHIFA",
+            collection: "To'plam",
+            about: "Haqida",
+            contact: "Aloqa",
+        },
+    },
+    en: {
+        navbar: {
+            logo: "Forever",
+            home: "HOME",
+            collection: "Collection",
+            about: "About",
+            contact: "Contact",
+        },
+    },
+};
+
+function Navbar() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isUzbek, setIsUzbek] = useState(false); // Tilni boshqarish uchun holat
+
+    // Tarjimani dinamik ravishda olib kelish
+    const t = isUzbek ? translations.uz.navbar : translations.en.navbar;
+
+    return (
+        <div>
+            <div className="flex items-center justify-between px-4 py-6 font-medium">
+                {/* Logo */}
+                <Link to={'/'}>
+                    <img src={assets.logo} alt={t.logo} className="object-cover w-36" />
+                </Link>
+
+                {/* Nav Links for larger screens */}
+                <ul className="hidden gap-8 text-sm text-gray-700 md:flex">
+                    {['home', 'collection', 'about', 'contact'].map((key) => (
+                        <NavLink
+                            key={key}
+                            to={key === 'home' ? '/' : `/${key}`}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "flex flex-col items-center gap-1 text-black relative after:content-[''] after:absolute after:bottom-[-4px] after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:w-2/4 after:bg-black"
+                                    : "flex flex-col items-center gap-1"
+                            }
+                        >
+                            <p className="uppercase">{t[key]}</p>
+                        </NavLink>
+                    ))}
+                </ul>
+
+                {/* Right Section */}
+                <div className="flex items-center gap-6">
+                    {/* Language Toggle */}
+                    <div className="relative flex items-center w-32 h-10 p-1 bg-gray-100 border-2 border-gray-300 rounded-full">
+                        <div
+                            className={`absolute top-1 bottom-1 left-1 w-14 rounded-full bg-blue-500 transition-all duration-300 ease-in-out ${isUzbek ? 'translate-x-0' : 'translate-x-16'
+                                }`}
+                        ></div>
+                        <button
+                            className={`z-10 flex-1 text-center font-medium transition-colors duration-300 ease-in-out ${isUzbek ? 'text-white' : 'text-gray-600'
+                                }`}
+                            onClick={() => setIsUzbek(true)}
+                        >
+                            Uz
+                        </button>
+                        <button
+                            className={`z-10 flex-1 text-center font-medium transition-colors duration-300 ease-in-out ${!isUzbek ? 'text-white' : 'text-gray-600'
+                                }`}
+                            onClick={() => setIsUzbek(false)}
+                        >
+                            En
+                        </button>
+                    </div>
+
+                    {/* Search Icon */}
+                    <img className="w-6 cursor-pointer" src={assets.search_icon} alt="Search" />
+
+                    {/* Profile Dropdown */}
+                    <div className="relative group">
+                        <img className="w-6 cursor-pointer" src={assets.profile_icon} alt="Profile" />
+                        <div className="absolute right-0 hidden pt-4 group-hover:block dropdown-menu">
+                            <div className="flex flex-col gap-2 px-5 py-3 text-gray-500 rounded cursor-pointer w-36 bg-slate-100">
+                                <p className="cursor-pointer hover:text-black">My Profile</p>
+                                <p className="cursor-pointer hover:text-black">My Orders</p>
+                                <p className="cursor-pointer hover:text-black">Logout</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Cart Icon */}
+                    <Link to={'/cart'} className="relative">
+                        <img src={assets.cart_icon} alt="Cart" className="w-6 cursor-pointer" />
+                        <span className="absolute top-0 right-0 px-1 text-xs text-white bg-red-500 rounded-full">
+                            10
+                        </span>
+                    </Link>
+
+                    {/* Burger Menu Icon */}
+                    <button
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="block md:hidden"
+                    >
+                        {isMenuOpen ? (
+                            <IoCloseOutline className="w-8 h-8 text-black" />
+                        ) : (
+                            <img
+                                className="w-6 cursor-pointer"
+                                src={assets.menu_icon}
+                                alt="Menu"
+                            />
+                        )}
+                    </button>
+                </div>
+            </div>
+
+            {/* Mobile Menu */}
+            {isMenuOpen && (
+                <div className="w-full bg-gray-100 md:hidden">
+                    <div className="relative flex items-center w-24 h-8 p-1 bg-gray-100 border-2 border-gray-300 rounded-full">
+                        <div
+                            className={`absolute top-1 bottom-1 left-1 w-10 rounded-full bg-blue-500 transition-all duration-300 ease-in-out ${isUzbek ? 'translate-x-0' : 'translate-x-12'}`}
+                        ></div>
+                        <button
+                            className={`z-10 flex-1 text-center font-medium transition-colors duration-300 ease-in-out ${isUzbek ? 'text-white' : 'text-gray-600'}`}
+                            onClick={() => setIsUzbek(true)}
+                        >
+                            Uz
+                        </button>
+                        <button
+                            className={`z-10 flex-1 text-center font-medium transition-colors duration-300 ease-in-out ${!isUzbek ? 'text-white' : 'text-gray-600'}`}
+                            onClick={() => setIsUzbek(false)}
+                        >
+                            En
+                        </button>
+                    </div>
+
+                    <ul className="flex flex-col items-start gap-4 py-4 pl-4 text-[17px] text-left text-gray-700">
+                        {['home', 'collection', 'about', 'contact'].map((key) => (
+                            <NavLink
+                                key={key}
+                                to={key === 'home' ? '/' : `/${key}`}
+                                onClick={() => setIsMenuOpen(false)}
+                                className={({ isActive }) =>
+                                    isActive ? 'text-black font-bold' : 'hover:text-black'
+                                }
+                            >
+                                {t[key]}
+                            </NavLink>
+                        ))}
+                    </ul>
+                </div>
+            )}
+        </div>
+    );
+}
+
+export default Navbar;
+
+"
+
+// en json 
+
+{
+  "translation": {
+    "navbar": {
+      "logo": "Doimiy",
+      "home": "BOSH SAHIFA",
+      "collection": "Kolleksiya",
+      "about": "Haqida",
+      "contact": "Bog‘lanish",
+      "myProfile": "Mening Profilim",
+      "myOrders": "Buyurtmalarim",
+      "logout": "Chiqish"
+    },
+    "hero": {
+      "title1": "bizning eng mashhur mahsulotlarimiz",
+      "title2": "So'nggi yangiliklar",
+      "title3": "Hoziroq xarid qiling"
+    },
+    "LatestCollection": {
+      "title1": "So'nggi Kolleksiyalar",
+      "title2": "Lorem Ipsum – bu faqatgina matbaa va dizayn sanoatida ishlatiladigan namunaviy matn bo'lib, u asosan bosma va maket ishlarida qo'llaniladi."
+    },
+    "assets": {}
+  }
+}

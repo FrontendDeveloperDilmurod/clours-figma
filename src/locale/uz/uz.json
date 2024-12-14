@@ -1,0 +1,55 @@
+{
+  "translation": {
+    "navbar": {
+      "logo": "Doimiy",
+      "home": "BOSH SAHIFA",
+      "collection": "Kolleksiya",
+      "about": "Haqida",
+      "contact": "Bog‘lanish",
+      "myProfile": "Mening Profilim",
+      "myOrders": "Buyurtmalarim",
+      "logout": "Chiqish"
+    },
+    "hero": {
+      "title1": "bizning eng mashhur mahsulotlarimiz",
+      "title2": "So'nggi yangiliklar",
+      "title3": "Hoziroq xarid qiling"
+    },
+    "LatestCollection": {
+      "title1": "So'nggi Kolleksiyalar",
+      "title2": "Lorem Ipsum – bu faqatgina matbaa va dizayn sanoatida ishlatiladigan namunaviy matn bo'lib, u asosan bosma va maket ishlarida qo'llaniladi."
+    },
+    "BestSeler": {
+      "title1": "Eng Yaxshi Sotuvchi",
+      "title2": "Lorem Ipsum faqat bosib chiqarish va tahrirlash sanoatining soxta matnidir. Lorem Ipsum allaqachon."
+    },
+    "OurPolicy": {
+      "title1": "Oson almashuv siyosati",
+      "title2": "Biz muammosiz almashuv siyosatini taklif qilamiz",
+      "title3": "7 kunlik qaytarish siyosati",
+      "title4": "Biz 7 kunlik bepul qaytarish siyosatini taqdim etamiz",
+      "title5": "Eng yaxshi mijozlarni qo‘llab-quvvatlash",
+      "title6": "Biz 24/7 mijozlarni qo‘llab-quvvatlashni taqdim etamiz"
+    },
+    "NewsletterBox": {
+      "title1": "Hozir obuna bo‘ling va 20% chegirma oling",
+      "title2": "Lorem Ipsum bosma va terish sanoatining oddiy matni hisoblanadi.",
+      "title3": "Email manzilingizni kiriting",
+      "title4": "OBUNA BO‘LISH"
+    },
+    "Footer": {
+      "title1": "Lorem Ipsum - bu chop etish va typsetting sanoatining faqatgina dummy matni. Lorem Ipsum 1500-yillardan buyon sanoatning standart dummy matni bo'lib kelgan, o'sha paytda noma'lum bir bosmachining turi galleyasi olib, uni tahrir qilib, namuna kitobi yaratgan.",
+      "title2": "KOMPANIYA",
+      "title3": "Bosh sahifa",
+      "title4": "Biz haqimizda",
+      "title5": "Yetkazib berish",
+      "title6": "Maxfiylik siyosati",
+      "title7": "BIZ BILAN BOG'LANING",
+      "title8": "+998 94 123 45 67",
+      "title9": "greatstackdev@gmail.com",
+      "title10": "Copyright 2024 ©",
+      "title11": "GreatStack.dev",
+      "title12": " - Barcha huquqlar himoyalangan."
+    }
+  }
+}
