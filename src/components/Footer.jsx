@@ -93,3 +93,79 @@ function Footer() {
 }
 
 export default Footer;
+
+
+// import React, { useState } from "react";
+
+// const ProductPage = () => {
+//     const [selectedSize, setSelectedSize] = useState("M");
+
+//     const handleSizeSelect = (size) => {
+//         setSelectedSize(size);
+//     };
+
+//     return (
+//         <div className="max-w-7xl mx-auto p-6 flex flex-col md:flex-row gap-8">
+//             {/* Left: Image gallery */}
+//             <div className="w-full md:w-1/3">
+//                 <div className="flex flex-col space-y-4">
+//                     {Array(5)
+//                         .fill("/path-to-image.jpg")
+//                         .map((src, idx) => (
+//                             <img
+//                                 key={idx}
+//                                 src={src}
+//                                 alt={`Product ${idx + 1}`}
+//                                 className="w-full h-auto rounded-md border"
+//                             />
+//                         ))}
+//                 </div>
+//             </div>
+
+//             {/* Right: Product details */}
+//             <div className="w-full md:w-2/3">
+//                 <h1 className="text-2xl font-bold">Men Round Neck Pure Cotton T-shirt</h1>
+//                 <div className="flex items-center mt-2">
+//                     <div className="text-yellow-500 text-lg">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+//                     <span className="ml-2 text-gray-500">(122)</span>
+//                 </div>
+//                 <p className="text-2xl font-semibold mt-4">$149</p>
+//                 <p className="text-gray-600 mt-2">
+//                     A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.
+//                 </p>
+
+//                 {/* Size selection */}
+//                 <div className="mt-6">
+//                     <h2 className="text-lg font-semibold mb-2">Select Size</h2>
+//                     <div className="flex gap-4">
+//                         {["S", "M", "L", "XL", "XXL"].map((size) => (
+//                             <button
+//                                 key={size}
+//                                 onClick={() => handleSizeSelect(size)}
+//                                 className={`px-4 py-2 border rounded-md ${selectedSize === size ? "border-black" : "border-gray-300"
+//                                     }`}
+//                             >
+//                                 {size}
+//                             </button>
+//                         ))}
+//                     </div>
+//                 </div>
+
+//                 {/* Add to Cart Button */}
+//                 <button className="mt-6 bg-black text-white px-6 py-3 rounded-md">
+//                     ADD TO CART
+//                 </button>
+
+//                 {/* Product info */}
+//                 <div className="mt-6 text-gray-600">
+//                     <p>100% Original product.</p>
+//                     <p>Cash on delivery is available on this product.</p>
+//                     <p>Easy return and exchange policy within 7 days.</p>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default ProductPage;
+

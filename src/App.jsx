@@ -12,6 +12,7 @@ import PlaceOrder from './pages/PlaceOrder'
 import Order from './pages/Order'
 import NotFound from './components/NotFound'
 import './index.css'
+import DetailPage from './pages/DetailPage'
 
 
 function App() {
@@ -22,11 +23,12 @@ function App() {
         <Route path='collection' element={<Collection />} />
         <Route path='about' element={<About />} />
         <Route path='contact' element={<Contact />} />
-        <Route path='product/productId' element={<Product />} />
+        <Route path='/product/:productId' element={<Product />} />
         <Route path='cart' element={<Cart />} />
         <Route path='login' element={<Login />} />
         <Route path='place-order' element={<PlaceOrder />} />
         <Route path='order' element={<Order />} />
+        <Route path="/detail/:id" element={<DetailPage />} />
       </Route>
       <Route path='*' element={<NotFound />} />
     </Route>

@@ -14,7 +14,7 @@ const LatestCollection = () => {
     }, [products])
 
     return (
-        <div className='my-12'>
+        <div className='my-12 '>
             <div className='py-8 text-3xl text-center'>
                 <Title text1={t('LatestCollection.title1')} text2={t('')} />  {/* Dynamik tarjima */}
                 <p className='w-3/4 m-auto text-sm text-gray-600 sm:text-sm md:text-base'>

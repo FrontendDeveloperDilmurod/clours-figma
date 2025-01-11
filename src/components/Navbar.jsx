@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { assets } from './../assets/frontend_assets/assets';
 import { IoCloseOutline } from 'react-icons/io5';
 import { useTranslation } from 'react-i18next';
+import SearchBar from './SearchBar';
+import { ShopContext } from '../context/ShopContext';
 
 function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isUzbek, setIsUzbek] = useState(false); // Tilni boshqarish uchun bitta holat ishlatilmoqda
+    const [isUzbek, setIsUzbek] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false); // State to handle search visibility
     const { t, i18n } = useTranslation();
+    const { showSearch, setShowSearch, getCartCount } = useContext(ShopContext);
 
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
         setIsUzbek(lng === 'uz');
+    };
+
+    const toggleSearch = () => {
+        setIsSearchOpen(!isSearchOpen); // Toggle search visibility
     };
 
     return (
@@ -23,7 +31,7 @@ function Navbar() {
                 </Link>
 
                 {/* Nav Links for larger screens */}
-                <ul className="hidden gap-8 text-sm text-gray-700 md:flex a_876 ">
+                <ul className="hidden gap-8 text-sm text-gray-700 md:flex">
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
@@ -74,7 +82,7 @@ function Navbar() {
                 {/* Right Section */}
                 <div className="flex items-center gap-6">
                     {/* Language Toggle */}
-                    <div onChange={(e) => i18n.changeLanguage(e.target.value)} className="relative flex items-center w-32 h-10 p-1 bg-gray-100 border-2 border-gray-300 rounded-full language_hidden ">
+                    {/* <div onChange={(e) => i18n.changeLanguage(e.target.value)} className="relative flex items-center w-32 h-10 p-1 bg-gray-100 border-2 border-gray-300 rounded-full language_hidden">
                         <div
                             className={`absolute top-1 bottom-1 left-1 w-14 rounded-full bg-blue-500 transition-all duration-300 ease-in-out ${isUzbek ? 'translate-x-0' : 'translate-x-16'
                                 }`}
@@ -93,10 +101,16 @@ function Navbar() {
                         >
                             En
                         </button>
-                    </div>
+                    </div> */}
 
                     {/* Search Icon */}
-                    <img className="w-6 cursor-pointer" src={assets.search_icon} alt="Search" />
+                    <img
+                        src={assets.search_icon}
+                        alt="Search"
+                        className="w-6 cursor-pointer"
+                        onClick={toggleSearch}
+                    />
+
 
                     {/* Profile Dropdown */}
                     <div className="relative group">
@@ -109,15 +123,13 @@ function Navbar() {
                             </div>
                         </div>
                     </div>
-
                     {/* Cart Icon */}
                     <Link to={'/cart'} className="relative">
                         <img src={assets.cart_icon} alt="Cart" className="w-6 cursor-pointer" />
                         <span className="absolute top-0 right-0 px-1 text-xs text-white bg-red-500 rounded-full">
-                            10
+                            {getCartCount()}
                         </span>
                     </Link>
-
                     {/* Burger Menu Icon */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -136,28 +148,16 @@ function Navbar() {
                 </div>
             </div>
 
+            {/* SearchBar for mobile */}
+            {isSearchOpen && (
+                <div className="px-4 mb-4">
+                    <SearchBar />
+                </div>
+            )}
+
             {/* Mobile Menu */}
             {isMenuOpen && (
                 <div className="w-full bg-gray-100 md:hidden">
-                    {/* Language Toggle */}
-                    <div className="relative flex items-center w-24 h-8 p-1 mb-4 bg-gray-100 border-2 border-gray-300 rounded-full">
-                        <div
-                            className={`absolute top-1 bottom-1 left-1 w-10 rounded-full bg-blue-500 transition-all duration-300 ease-in-out ${isUzbek ? 'translate-x-0' : 'translate-x-12'}`}
-                        ></div>
-                        <button
-                            className={`z-10 flex-1 text-center font-medium transition-colors duration-300 ease-in-out ${isUzbek ? 'text-white' : 'text-gray-600'}`}
-                            onClick={() => changeLanguage('uz')}
-                        >
-                            Uz
-                        </button>
-                        <button
-                            className={`z-10 flex-1 text-center font-medium transition-colors duration-300 ease-in-out ${!isUzbek ? 'text-white' : 'text-gray-600'}`}
-                            onClick={() => changeLanguage('en')}
-                        >
-                            En
-                        </button>
-                    </div>
-
                     <ul className="flex flex-col justify-start gap-8 mb-8 text-sm text-gray-700 sm:flex-row sm:text-base">
                         <NavLink
                             to="/"
@@ -211,12 +211,10 @@ function Navbar() {
                             </p>
                         </NavLink>
                     </ul>
-
-
-
                 </div>
             )}
         </div>
     );
 }
+
 export default Navbar;

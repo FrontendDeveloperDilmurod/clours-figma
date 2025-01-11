@@ -16,7 +16,6 @@ const styles = {
     container: {
         textAlign: 'center',
         padding: '50px',
-        backgroundColor: '#f8f9fa',
         height: '100vh',
         display: 'flex',
         flexDirection: 'column',

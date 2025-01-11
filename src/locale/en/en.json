@@ -50,6 +50,21 @@
       "title10": " Copyright 2024 ©",
       "title11": "GreatStack.dev",
       "title12": " - All Rights Reserved."
+    },
+    "Collection": {
+      "title1": "Filters",
+      "title2": "Category",
+      "title3": "Men",
+      "title4": "Women",
+      "title5": "Kids",
+      "title6": "Type",
+      "title7": "Topwear",
+      "title8": "Bottomwear",
+      "title9": "Winterwear",
+      "title10": "All",
+      "title11": "Collections",
+      "title12": "Price: Low to High",
+      "title13": "Price: High to Low"
     }
   }
 }

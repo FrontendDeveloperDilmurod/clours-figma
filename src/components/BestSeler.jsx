@@ -16,13 +16,13 @@ function BestSeler() {
         <div className='my-12'>
             <div className='py-8 text-3xl text-center'>
                 <Title text1={t("BestSeler.title1")} text2='' />
-                <p className='w-3/4 m-auto text-sm text-gray-600 sm:text-sm md:text-base'>
+                <p className='m-auto w-3/4 text-sm text-gray-600 sm:text-sm md:text-base'>
                     {t("BestSeler.title2")}
                 </p>
             </div>
 
             {/* best seller */}
-            <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-col-4 lg:grid-cols-5 gap-y-6'>
+            <div className='grid grid-cols-2 gap-4 gap-y-6 sm:grid-cols-3 md:grid-col-4 lg:grid-cols-5'>
                 {latestProducts.map((item, index) => (
                     <ProductItem
                         key={index}
